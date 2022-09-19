@@ -1,0 +1,32 @@
+clc;
+clear all;
+close all;
+
+a = [1,2]; %input
+b = [1,1,1]; %impulse
+n1 = length(a);
+n2 = length(b);
+
+x = 0:1:n1-1;
+subplot(2,2,1);
+stem(x,a);
+xlabel("--------------> n");
+ylabel('x(n)');
+title('Input Sequence');
+grid on;
+
+y = 0:1:n2-1;
+subplot(2,2,2);
+stem(y,b)
+xlabel("--------------> n");
+ylabel('h(n)');
+grid on;
+
+c = conv(a,b);
+n3= 0:1:n1+n2-2;
+subplot(2,1,2);
+stem(n3,c);
+xlabel("--------------> n");
+ylabel('c(n)');
+title('Convolution of Two Sequence');
+grid on;
